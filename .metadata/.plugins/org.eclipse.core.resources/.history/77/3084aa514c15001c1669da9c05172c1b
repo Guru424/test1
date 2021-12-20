@@ -1,0 +1,30 @@
+package webdriver;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Slider {
+public static void main(String[] args) throws InterruptedException {
+	
+	System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
+	driver.get("https://w1vmgmt-qa.awapps.com/locations");
+	
+	driver.findElement(By.xpath("/html/body/app-root/app-locations/mat-sidenav-container/mat-sidenav/div/ul/li[6]/p")).click();
+	Thread.sleep(1000);
+	driver.findElement(By.xpath("/html/body/app-root/app-locations/mat-sidenav-container/mat-sidenav-content/div[2]/table/tbody/tr[2]/td[1]")).click();
+	Thread.sleep(1000);
+	driver.findElement(By.xpath("/html/body/app-root/app-location-details/div[1]/div[2]/button[2]/span[1]/div[2]")).click();
+	Thread.sleep(1000);
+	
+	//driver.switchTo().frame(0);
+	for(int i=0;i<5;i++){
+	driver.findElement(By.xpath("//*[@id="mat-menu-panel-3"]/div/mat-slider")).sendKeys(Keys.ARROW_RIGHT);
+}
+	
+}
+
+}
